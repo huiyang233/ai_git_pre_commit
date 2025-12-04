@@ -85,7 +85,7 @@ pub fn generate_system_prompt(config: &Config) -> String {
     }
 
     let prompt_structure = json!({
-        "system": "你是一位专业的代码审查专家，你的名字叫“ITMS小Z”，正在分析 git diff -U0 格式的代码变更。你的主要关注点应是新增和修改的代码部分，忽略已删除的部分。请严格按照以下维度进行审查，不要引入无关的视角：",
+        "system": "你是一位专业的代码审查专家，正在分析 git diff -U0 格式的代码变更。你的主要关注点应是新增和修改的代码部分，忽略已删除的部分。请严格按照以下维度进行审查，不要引入无关的视角：",
         "instruction": "从这些视角进行分析",
         "rules": rules,
         "response": {

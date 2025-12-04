@@ -37,6 +37,38 @@ ai_git_pre_commit install
 - 在当前可执行文件目录下载/创建默认的 `.env` 配置文件。
 - 在 `.git/hooks/` 目录下创建 `pre-commit` 钩子脚本。
 
+### 3. 配置环境变量
+
+如果安装后无法直接运行 `ai_git_pre_commit` 命令，你需要将其所在目录添加到系统 PATH 中。
+
+**Linux / macOS**
+
+1. 编辑你的 Shell 配置文件（如 `~/.bashrc`, `~/.zshrc` 或 `~/.profile`），添加以下内容：
+   ```bash
+   export PATH="$HOME/.cargo/bin:$PATH"
+   ```
+2. 使配置生效：
+   ```bash
+   source ~/.bashrc  # 或 source ~/.zshrc
+   ```
+
+**Windows**
+
+1. **使用 PowerShell**:
+   ```powershell
+   # 将路径替换为你的实际安装路径
+   $installPath = "$env:USERPROFILE\.cargo\bin"
+   [Environment]::SetEnvironmentVariable("Path", $env:Path + ";$installPath", "User")
+   ```
+   注意：重启终端后生效。
+
+2. **手动设置**:
+   - 在搜索栏输入 "环境变量"，选择 "编辑系统环境变量"。
+   - 点击 "环境变量" 按钮。
+   - 在 "用户变量" 区域找到 "Path" 并选中，点击 "编辑"。
+   - 点击 "新建"，输入安装路径（通常是 `C:\Users\你的用户名\.cargo\bin`）。
+   - 点击 "确定" 保存。
+
 ## 配置
 
 安装完成后，请编辑配置文件（通常位于可执行文件同级目录或项目根目录下的 `.env`）以填入你的 API Key。
